@@ -1,0 +1,30 @@
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+import pickle
+
+# 1. Load dataset
+df = pd.read_csv("aa_dataset-tickets-multi-lang-5-2-50-version.csv")
+
+# 2. Use only English tickets
+df = df[df['language'] == 'en']
+
+# 3. Select relevant columns
+df = df[['body', 'tag_1']].dropna()
+
+X = df['body']   # Input text
+y = df['tag_1']  # Output category
+
+# 4. Convert text to numerical features
+vectorizer = TfidfVectorizer(stop_words='english', max_features=1000)
+X_tfidf = vectorizer.fit_transform(X)
+
+# 5. Train Logistic Regression
+model = LogisticRegression(max_iter=300, solver='liblinear')
+model.fit(X_tfidf, y)
+
+# 6. Save model and vectorizer
+pickle.dump(model, open("model.pkl", "wb"))
+pickle.dump(vectorizer, open("vectorizer.pkl", "wb"))
+
+print("Model trained and saved successfully!")

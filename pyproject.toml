@@ -1,0 +1,17 @@
+[project]
+name = "it-ticket-classifier"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.162.0",
+    "matplotlib>=3.10.8",
+    "numpy>=2.4.2",
+    "pandas>=3.0.0",
+    "pydantic>=2,<3",
+    "scikit-learn>=1.8.0",
+    "seaborn>=0.13.2",
+    "structlog>=25.5.0",
+    "uvicorn[standard]>=0.54.0",
+]
