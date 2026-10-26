@@ -86,3 +86,18 @@ Write-Host "`nCurrent project tree:" -ForegroundColor Cyan
 tree /A /F
 
 Write-Host "`nRestructuring completed. Review the tree above." -ForegroundColor Green
+
+
+# /////////////////////////////////////////////////////////////////////////////////////
+# Get-ChildItem -Recurse -File -Force |
+#     Where-Object {
+#         $_.FullName -notmatch '\\node_modules(\\|$)' -and
+#         $_.Name -ne 'package-lock.json' -and
+#         $_.FullName -notmatch '\\\.git(\\|$)'
+#     } |
+#     ForEach-Object {
+#         "========== $($_.FullName) =========="
+#         Get-Content $_.FullName -ErrorAction SilentlyContinue
+#         "`n"
+#     } |
+#     Out-File -FilePath ".\project-context.txt" -Encoding utf8
