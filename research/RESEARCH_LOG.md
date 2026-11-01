@@ -256,3 +256,34 @@ Evaluation scripts must not overwrite production model artifacts.
 
 The held-out test set should not be repeatedly used to tune model configurations or decision thresholds.
 
+
+---
+
+## 10. Research Reproducibility
+
+### Environment
+
+- Programming language: Python
+- Machine learning framework: scikit-learn
+- Feature extraction: TF-IDF
+- Primary classifier: Logistic Regression
+- Evaluation strategy: Stratified train/test split
+
+### Reproducibility requirements
+
+- Record package versions.
+- Preserve dataset version information.
+- Record random seeds.
+- Keep experiment configurations.
+- Store evaluation results separately from production artifacts.
+- Document changes to preprocessing pipelines.
+
+### Research status
+
+This document represents ongoing experimental work.
+Results are preliminary and should not be interpreted
+as evidence of production-level performance.
+
+Further experiments will investigate generalization,
+model calibration, dataset quality and confidence-aware
+automated triage.
